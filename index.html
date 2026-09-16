@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INFRA Computer Academy</title>
+
+<style>
+:root{
+    --navy:#102a5c;
+    --blue:#1e66f5;
+    --cyan:#00b8d9;
+    --green:#7bc043;
+    --orange:#ff8a1f;
+    --pink:#d92b86;
+    --yellow:#f5c542;
+    --ink:#172033;
+    --muted:#68738a;
+    --bg:#f5f8fc;
+    --white:#fff;
+    --shadow:0 14px 40px rgba(16,42,92,.10);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e8edf5;
+}
+
+.nav{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+/* Logo */
+.logo{
+    height:58px;
+    width:auto;
+    object-fit:contain;
+}
+
+.navlinks{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    font-weight:bold;
+    color:#33405a;
+}
+
+.navlinks a:hover{
+    color:var(--blue);
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:0;
+    border-radius:12px;
+    padding:12px 19px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(30,102,245,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:#1556d1;
+}
+
+.btn-light{
+    background:#fff;
+    color:var(--navy);
+    border:1px solid #dfe7f2;
+}
+
+.btn-light:hover{
+    transform:translateY(-2px);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--navy);
+    color:#fff;
+    border-radius:10px;
+    padding:9px 12px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:76px 0 60px;
+    background:
+    radial-gradient(circle at 85% 15%,rgba(0,184,217,.18),transparent 28%),
+    radial-gradient(circle at 15% 30%,rgba(123,192,67,.14),transparent 25%),
+    linear-gradient(135deg,#eef5ff,#fff);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#e7f0ff;
+    color:#1556d1;
+    padding:7px 13px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:.85rem;
+    margin-bottom:17px;
+}
+
+h1{
+    font-size:clamp(2.4rem,5vw,4.6rem);
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:var(--navy);
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan),
+        var(--pink)
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    font-size:1.12rem;
+    color:var(--muted);
+    max-width:650px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:27px;
+}
+
+.hero-card{
+    background:#fff;
+    border-radius:28px;
+    padding:25px;
+    box-shadow:var(--shadow);
+    border:1px solid #e9eef7;
+}
+
+.screen{
+    background:var(--navy);
+    border-radius:20px;
+    padding:17px;
+    color:#fff;
+    overflow:hidden;
+}
+
+.dots{
+    display:flex;
+    gap:6px;
+    margin-bottom:15px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.7;
+}
+
+.code{
+    font-family:Consolas,monospace;
+    font-size:13px;
+    line-height:1.8;
+    color:#dce8ff;
+}
+
+.code .c1{
+    color:#69d2ff;
+}
+
+.code .c2{
+    color:#9be36d;
+}
+
+.code .c3{
+    color:#ff9bc8;
+}
+
+.code .c4{
+    color:#ffd66b;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:14px;
+}
+
+.stat{
+    background:#f5f8ff;
+    padding:14px;
+    border-radius:14px;
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    color:var(--navy);
+    font-size:1.35rem;
+}
+
+.stat span{
+    font-size:.8rem;
+    color:var(--muted);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:80px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 42px;
+}
+
+.section-head h2{
+    font-size:2.3rem;
+    color:var(--navy);
+    margin-bottom:10px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= SKILLS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    border:1px solid #e7edf5;
+    box-shadow:0 7px 25px rgba(16,42,92,.06);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:#e8f0ff;
+}
+
+.green{
+    background:#edf9e6;
+}
+
+.orange{
+    background:#fff0df;
+}
+
+.pink{
+    background:#ffe8f4;
+}
+
+.cyan{
+    background:#e3f9fc;
+}
+
+.yellow{
+    background:#fff8d9;
+}
+
+.card h3{
+    color:var(--navy);
+    margin-bottom:7px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+/* ================= COURSES ================= */
+
+.course-card{
+    padding:0;
+    overflow:hidden;
+}
+
+.course-top{
+    padding:25px;
+    color:#fff;
+}
+
+.course-top h3{
+    color:#fff;
+    font-size:1.35rem;
+}
+
+.course-top p{
+    color:rgba(255,255,255,.85);
+}
+
+.c1{
+    background:linear-gradient(135deg,#1556d1,#00a9c7);
+}
+
+.c2{
+    background:linear-gradient(135deg,#438b24,#91c83e);
+}
+
+.c3{
+    background:linear-gradient(135deg,#ed6b12,#ffae32);
+}
+
+.course-body{
+    padding:22px;
+}
+
+.course-body ul{
+    list-style:none;
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.course-body li{
+    margin:7px 0;
+}
+
+.course-body li::before{
+    content:"✓";
+    color:var(--green);
+    font-weight:900;
+    margin-right:8px;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz{
+    background:var(--navy);
+    color:#fff;
+    border-radius:28px;
+    padding:45px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.quiz h2{
+    font-size:2.1rem;
+}
+
+.quiz p{
+    color:#cbd7ee;
+    margin-top:8px;
+}
+
+.quiz-box{
+    background:#fff;
+    color:var(--ink);
+    padding:23px;
+    border-radius:18px;
+}
+
+.question{
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.options{
+    display:grid;
+    gap:9px;
+}
+
+.option{
+    border:1px solid #dfe6f0;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:10px;
+    cursor:pointer;
+    text-align:left;
+}
+
+.option:hover{
+    border-color:var(--blue);
+}
+
+.option.correct{
+    background:#eaf8e3;
+    border-color:var(--green);
+}
+
+.option.wrong{
+    background:#ffeaea;
+    border-color:#ef6464;
+}
+
+#quizResult{
+    font-weight:800;
+    margin-top:12px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:#fff;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:30px;
+}
+
+.contact-info,
+.form{
+    background:#f7f9fd;
+    padding:28px;
+    border-radius:20px;
+}
+
+.contact-info h3{
+    color:var(--navy);
+    margin-bottom:12px;
+}
+
+.contact-item{
+    margin:17px 0;
+}
+
+.contact-item b{
+    display:block;
+    color:var(--navy);
+}
+
+.contact-item span{
+    color:var(--muted);
+}
+
+.form{
+    display:grid;
+    gap:14px;
+}
+
+.form input,
+.form textarea,
+.form select{
+    width:100%;
+    border:1px solid #dce4ef;
+    border-radius:11px;
+    padding:13px;
+    background:#fff;
+    outline:none;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus{
+    border-color:var(--blue);
+}
+
+.form textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0c2149;
+    color:#d6e1f5;
+    padding:30px 0;
+}
+
+.footer-flex{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+}
+
+.footer-logo{
+    height:42px;
+    background:#fff;
+    border-radius:9px;
+    padding:3px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(4,17,40,.65);
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    background:#fff;
+    border-radius:22px;
+    padding:30px;
+    max-width:480px;
+    width:100%;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:17px;
+    top:12px;
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .navlinks{
+        display:none;
+        position:absolute;
+        left:4%;
+        right:4%;
+        top:70px;
+        background:#fff;
+        padding:18px;
+        border-radius:15px;
+        box-shadow:var(--shadow);
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .navlinks.open{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav > .btn{
+        display:none;
+    }
+
+    .hero-grid,
+    .quiz,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:560px){
+
+    .logo{
+        height:48px;
+    }
+
+    .hero{
+        padding-top:48px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .quiz{
+        padding:27px;
+    }
+
+    section{
+        padding:58px 0;
+    }
+
+    .footer-flex{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container nav">
+
+    <!-- Yahan apna logo file rakh sakte hain -->
+    <a href="#home">
+        <img
+            class="logo"
+            src="logo.png"
+            alt="INFRA Logo"
+        >
+    </a>
+
+    <nav class="navlinks" id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#quiz">Quiz</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <button
+        class="btn btn-primary"
+        onclick="openModal()"
+    >
+        Join Now
+    </button>
+
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+    >
+        ☰
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main id="home">
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<span class="badge">
+💻 SMART • SIMPLE • PRACTICAL LEARNING
+</span>
+
+<h1>
+
+Learn Computers.
+
+<br>
+
+<span class="gradient">
+Build Your Future.
+</span>
+
+</h1>
+
+<p>
+
+INFRA Computer Academy par computer basics se coding tak
+practical skills seekhein. Beginners ke liye simple lessons,
+useful courses aur interactive quiz.
+
+</p>
+
+<div class="hero-actions">
+
+<a
+href="#courses"
+class="btn btn-primary"
+>
+Explore Courses →
+</a>
+
+<a
+href="#quiz"
+class="btn btn-light"
+>
+Take a Quick Quiz
+</a>
+
+</div>
+
+</div>
+
+
+<!-- CODE CARD -->
+
+<div class="hero-card">
+
+<div class="screen">
+
+<div class="dots">
+
+<i class="dot"></i>
+<i class="dot"></i>
+<i class="dot"></i>
+
+</div>
+
+<div class="code">
+
+<div>
+<span class="c1">&lt;html&gt;</span>
+</div>
+
+<div>
+&nbsp;&nbsp;
+<span class="c1">&lt;h1&gt;</span>
+
+<span class="c2">
+Hello, Learner!
+</span>
+
+<span class="c1">
+&lt;/h1&gt;
+</span>
+
+</div>
+
+<div>
+
+&nbsp;&nbsp;
+
+<span class="c1">
+&lt;p&gt;
+</span>
+
+<span class="c3">
+Learn. Practice. Grow.
+</span>
+
+<span class="c1">
+&lt;/p&gt;
+</span>
+
+</div>
+
+<div>
+
+&nbsp;&nbsp;
+
+<span class="c4">
+// Your future starts here 🚀
+</span>
+
+</div>
+
+<div>
+
+<span class="c1">
+&lt;/html&gt;
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<b>100%</b>
+
+<span>
+Practical
+</span>
+
+</div>
+
+<div class="stat">
+
+<b>Easy</b>
+
+<span>
+Lessons
+</span>
+
+</div>
+
+<div class="stat">
+
+<b>24/7</b>
+
+<span>
+Learning
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+What You Can Learn
+</h2>
+
+<p>
+Computer education ko step-by-step aur interesting banane
+ke liye important skills ek jagah.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<article class="card">
+
+<div class="icon blue">
+🖥️
+</div>
+
+<h3>
+Computer Basics
+</h3>
+
+<p>
+Hardware, software, operating systems, files, folders
+aur everyday computer use.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon green">
+📊
+</div>
+
+<h3>
+MS Office
+</h3>
+
+<p>
+Word, Excel aur PowerPoint ke practical tasks,
+formatting, formulas aur presentations.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon orange">
+🌐
+</div>
+
+<h3>
+Internet Skills
+</h3>
+
+<p>
+Browsing, email, online research, cloud tools aur
+safe digital practices.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon pink">
+💻
+</div>
+
+<h3>
+Web Development
+</h3>
+
+<p>
+HTML, CSS aur JavaScript se modern websites banana
+shuru karein.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon cyan">
+⌨️
+</div>
+
+<h3>
+Typing Skills
+</h3>
+
+<p>
+Accuracy aur speed improve karne ke liye structured
+typing practice.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon yellow">
+🔐
+</div>
+
+<h3>
+Digital Safety
+</h3>
+
+<p>
+Strong passwords, phishing awareness, privacy aur
+responsible internet use.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COURSES ================= -->
+
+<section
+id="courses"
+style="background:#fff"
+>
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+Featured Courses
+</h2>
+
+<p>
+Apni learning journey ko beginner level se practical
+projects tak le jayein.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<!-- COURSE 1 -->
+
+<article class="card course-card">
+
+<div class="course-top c1">
+
+<h3>
+Computer Fundamentals
+</h3>
+
+<p>
+Beginner friendly foundation course
+</p>
+
+</div>
+
+
+<div class="course-body">
+
+<ul>
+
+<li>
+Computer & Windows basics
+</li>
+
+<li>
+Files, folders & settings
+</li>
+
+<li>
+Internet & email essentials
+</li>
+
+</ul>
+
+
+<button
+class="btn btn-primary"
+onclick="courseAlert('Computer Fundamentals')"
+>
+View Course
+</button>
+
+</div>
+
+</article>
+
+
+<!-- COURSE 2 -->
+
+<article class="card course-card">
+
+<div class="course-top c2">
+
+<h3>
+Office Productivity
+</h3>
+
+<p>
+Work smarter with office tools
+</p>
+
+</div>
+
+
+<div class="course-body">
+
+<ul>
+
+<li>
+MS Word documents
+</li>
+
+<li>
+Excel formulas & tables
+</li>
+
+<li>
+PowerPoint presentations
+</li>
+
+</ul>
+
+
+<button
+class="btn btn-primary"
+onclick="courseAlert('Office Productivity')"
+>
+View Course
+</button>
+
+</div>
+
+</article>
+
+
+<!-- COURSE 3 -->
+
+<article class="card course-card">
+
+<div class="course-top c3">
+
+<h3>
+Web Starter
+</h3>
+
+<p>
+Start creating websites
+</p>
+
+</div>
+
+
+<div class="course-body">
+
+<ul>
+
+<li>
+HTML page structure
+</li>
+
+<li>
+CSS layouts & design
+</li>
+
+<li>
+JavaScript interactions
+</li>
+
+</ul>
+
+
+<button
+class="btn btn-primary"
+onclick="courseAlert('Web Starter')"
+>
+View Course
+</button>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz">
+
+<div class="container">
+
+<div class="quiz">
+
+
+<div>
+
+<span class="badge">
+⚡ QUICK CHECK
+</span>
+
+<h2>
+Test Your Computer Knowledge
+</h2>
+
+<p>
+Ek short question solve karein aur apni basic computer
+knowledge check karein.
+</p>
+
+</div>
+
+
+<div class="quiz-box">
+
+<div class="question">
+
+Which language is mainly used to structure a web page?
+
+</div>
+
+
+<div class="options">
+
+
+<button
+class="option"
+onclick="answer(this,false)"
+>
+A. Python
+</button>
+
+
+<button
+class="option"
+onclick="answer(this,true)"
+>
+B. HTML
+</button>
+
+
+<button
+class="option"
+onclick="answer(this,false)"
+>
+C. SQL
+</button>
+
+
+<button
+class="option"
+onclick="answer(this,false)"
+>
+D. Excel
+</button>
+
+
+</div>
+
+
+<div id="quizResult"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+id="contact"
+class="contact"
+>
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+Start Learning Today
+</h2>
+
+<p>
+Apna message bhejein.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-info">
+
+<h3>
+INFRA Computer Academy
+</h3>
+
+
+<div class="contact-item">
+
+<b>
+📍 Address
+</b>
+
+<span>
+Your City, Pakistan
+</span>
+
+</div>
+
+
+<div class="contact-item">
+
+<b>
+📞 Phone
+</b>
+
+<span>
++92 300 0000000
+</span>
+
+</div>
+
+
+<div class="contact-item">
+
+<b>
+✉️ Email
+</b>
+
+<span>
+info@infraacademy.com
+</span>
+
+</div>
+
+
+<div class="contact-item">
+
+<b>
+🕘 Timings
+</b>
+
+<span>
+Mon – Sat | 9:00 AM – 7:00 PM
+</span>
+
+</div>
+
+
+</div>
+
+
+<!-- CONTACT FORM -->
+
+<form
+class="form"
+onsubmit="submitForm(event)"
+>
+
+
+<input
+id="name"
+type="text"
+placeholder="Your Name"
+required
+>
+
+
+<input
+id="email"
+type="email"
+placeholder="Email Address"
+required
+>
+
+
+<textarea
+id="message"
+placeholder="Which course are you interested in?"
+required
+></textarea>
+
+
+<button
+class="btn btn-primary"
+type="submit"
+>
+Send Message →
+</button>
+
+
+</form>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container footer-flex">
+
+
+<img
+class="footer-logo"
+src="logo.png"
+alt="INFRA Logo"
+>
+
+
+<span>
+
+© <span id="year"></span>
+INFRA Computer Academy.
+All rights reserved.
+
+</span>
+
+
+</div>
+
+</footer>
+
+
+<!-- ================= JOIN MODAL ================= -->
+
+<div
+class="modal"
+id="joinModal"
+onclick="if(event.target===this)closeModal()"
+>
+
+
+<div class="modal-content">
+
+
+<button
+class="close"
+onclick="closeModal()"
+>
+×
+</button>
+
+
+<h2 style="color:#102a5c;margin-bottom:8px">
+Join INFRA
+</h2>
+
+
+<p style="color:#68738a;margin-bottom:20px">
+
+Learning start karne ke liye apna naam aur preferred
+course enter karein.
+
+</p>
+
+
+<form
+class="form"
+style="padding:0;background:none"
+onsubmit="joinForm(event)"
+>
+
+
+<input
+id="joinName"
+type="text"
+placeholder="Your Name"
+required
+>
+
+
+<select
+id="joinCourse"
+required
+>
+
+<option value="">
+Select Course
+</option>
+
+<option>
+Computer Fundamentals
+</option>
+
+<option>
+Office Productivity
+</option>
+
+<option>
+Web Starter
+</option>
+
+</select>
+
+
+<button
+class="btn btn-primary"
+>
+Continue →
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* Mobile Menu */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("open");
+
+}
+
+
+/* Close mobile menu after clicking */
+
+document
+.querySelectorAll(".navlinks a")
+.forEach(function(a){
+
+    a.addEventListener("click",function(){
+
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("open");
+
+    });
+
+});
+
+
+/* Open Join Modal */
+
+function openModal(){
+
+    document
+    .getElementById("joinModal")
+    .classList
+    .add("show");
+
+}
+
+
+/* Close Join Modal */
+
+function closeModal(){
+
+    document
+    .getElementById("joinModal")
+    .classList
+    .remove("show");
+
+}
+
+
+/* Course Button */
+
+function courseAlert(name){
+
+    alert(
+        "Course selected: "
+        + name
+        + "\n\nAdmissions form ke liye "
+        + '"Join Now"'
+        + " par click karein."
+    );
+
+}
+
+
+/* Quiz */
+
+function answer(button,correct){
+
+    document
+    .querySelectorAll(".option")
+    .forEach(function(btn){
+
+        btn.disabled = true;
+
+    });
+
+
+    button.classList.add(
+        correct ? "correct" : "wrong"
+    );
+
+
+    document
+    .getElementById("quizResult")
+    .textContent =
+    correct
+    ?
+    "🎉 Correct! HTML web page ki structure banane ke liye use hoti hai."
+    :
+    "❌ Not quite. Correct answer: HTML.";
+
+}
+
+
+/* Contact Form */
+
+function submitForm(event){
+
+    event.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    alert(
+        "Thank you, "
+        + name
+        + "! Your message has been received."
+    );
+
+    event.target.reset();
+
+}
+
+
+/* Join Form */
+
+function joinForm(event){
+
+    event.preventDefault();
+
+    const name =
+    document.getElementById("joinName").value;
+
+    const course =
+    document.getElementById("joinCourse").value;
+
+
+    closeModal();
+
+
+    alert(
+        "Welcome "
+        + name
+        + "!\n\n"
+        + "You selected: "
+        + course
+        + "\n\n"
+        + "Thank you for choosing INFRA Computer Academy."
+    );
+
+
+    event.target.reset();
+
+}
+
+
+/* Current Year */
+
+document
+.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
